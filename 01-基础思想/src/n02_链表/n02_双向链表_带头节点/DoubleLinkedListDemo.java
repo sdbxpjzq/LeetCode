@@ -1,5 +1,7 @@
 package n02_链表.n02_双向链表_带头节点;
 
+import java.util.Stack;
+
 public class DoubleLinkedListDemo {
 
     public static void main(String[] args) {
