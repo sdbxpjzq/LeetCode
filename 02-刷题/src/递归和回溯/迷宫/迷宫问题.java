@@ -1,6 +1,6 @@
-package 递归.迷宫;
+package 递归和回溯.迷宫;
 
-public class MiGong {
+public class 迷宫问题 {
 
     public static void main(String[] args) {
         // 先创建一个二维数组，模拟迷宫

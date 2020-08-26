@@ -1,4 +1,4 @@
-package 递归;
+package 递归和回溯;
 
 public class 阶乘 {
 
