@@ -1,4 +1,4 @@
-package n05_递归;
+package n05_递归和回溯;
 
 public class TestDemo {
     public static void main(String[] args) {
