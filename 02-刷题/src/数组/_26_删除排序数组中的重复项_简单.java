@@ -14,10 +14,10 @@ package 数组;
  * <p>
  * 你不需要考虑数组中超出新长度后面的元素。
  */
-public class N26_删除排序数组中的重复项_简单 {
+public class _26_删除排序数组中的重复项_简单 {
     public static void main(String[] args) {
         int[] nums = {1,1,2,3,4,4,5};
-        int i = new N26_删除排序数组中的重复项_简单().removeDuplicates(nums);
+        int i = new _26_删除排序数组中的重复项_简单().removeDuplicates(nums);
     }
 
     /**
