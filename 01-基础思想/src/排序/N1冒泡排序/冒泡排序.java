@@ -1,11 +1,11 @@
-package 排序.冒泡排序;
+package 排序.N1冒泡排序;
 
 import java.util.Arrays;
 
 public class 冒泡排序 {
     public static void main(String[] args) {
         int[] nums2 = {1, 22, 3, 4, 5};
-        new 冒泡排序().maoPao(nums2);
+        maoPao(nums2);
 
     }
 
@@ -14,7 +14,7 @@ public class 冒泡排序 {
      * 推荐这个
      * flag 用来做优化
      */
-    private void maoPao(int[] nums) {
+    private static void maoPao(int[] nums) {
         int count = 0;
         boolean flag = false;
         for (int i = 0; i < nums.length - 1; i++) {
