@@ -29,15 +29,15 @@ public class _350_两个数组的交集II_简单 {
     public static void main(String[] args) {
         int[] nums1 = {4, 9, 5};
         int[] nums2 = {9, 4, 9, 8,9, 4};
-        int[] intersect = new _350_两个数组的交集II_简单().intersect(nums1, nums2);
+        int[] intersect =  intersect(nums1, nums2);
         for (int i : intersect) {
             System.out.println(i);
         }
     }
 
-    public int[] intersect(int[] nums1, int[] nums2) {
+    public static int[] intersect(int[] nums1, int[] nums2) {
          // todo 实现
-
+        return nums1;
     }
 
 }
