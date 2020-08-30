@@ -28,12 +28,13 @@ import java.util.Arrays;
 public class 快速排序 {
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6};
+        int[] arr = {1, 6, 2, 4, 4, 3, 5, 6};
         System.out.println("排序前");
         System.out.println(Arrays.toString(arr));
 
-        quickSort(arr, 0, arr.length - 1);
+        // quickSort(arr, 0, arr.length - 1);
         // quickSortV2(arr, 0, arr.length - 1);
+        quickSortV3(arr, 0, arr.length - 1);
 
         System.out.println("排序后");
         System.out.println(Arrays.toString(arr));
@@ -69,18 +70,18 @@ public class 快速排序 {
     }
 
     /**
-     * 挖坑填数
+     * todo 挖坑填数 关注这个吧, 性能好一些
      * 可以取第一个元素 做为 pivot,
      * 1. 先从右边开始找, 再从左边找, 顺序挺重要的
      */
-    private static void quickSortV2(int[] arr, int L, int R) {
-        if (L >= R) {
+    private static void quickSortV2(int[] arr, int start, int end) {
+        if (start >= end) {
             // 递归退出
             return;
         }
 
-        int left = L; //左下标
-        int right = R; //右下标
+        int left = start; //左下标
+        int right = end; //右下标
         //pivot 取第一个值, 挖坑填数
         int pivot = arr[left];
 
@@ -109,8 +110,8 @@ public class 快速排序 {
                 arr[left] = pivot;
             }
         }
-        quickSortV2(arr, L, right - 1);
-        quickSortV2(arr, right + 1, R);
+        quickSortV2(arr, start, right - 1);
+        quickSortV2(arr, right + 1, end);
 
     }
 
@@ -162,4 +163,43 @@ public class 快速排序 {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+
+    /**
+     * 挖坑法的另一种形式
+     */
+    private static void quickSortV3(int[] arr, int left, int right) {
+        if (left >= right) {
+            // 递归退出
+            return;
+        }
+        int pivot;
+        if (left < right) {
+            pivot = Partition(arr, left, right);
+            quickSortV3(arr, left, pivot - 1);// left ~ pivot-1 的元素都比小
+            quickSortV3(arr, pivot + 1, right);
+        }
+    }
+
+    private static int Partition(int[] arr, int left, int right) {
+        int pivot = arr[left];
+        while (left < right) {
+
+            while (left < right && arr[right] >= pivot) {
+                right--;
+            }
+            if (left < right) {
+                arr[left] = arr[right];
+            }
+            while (left < right && arr[left] <= pivot) {
+                left++;
+            }
+            if (left < right) {
+                arr[right] = arr[left];
+            }
+        }
+        arr[left] = pivot;
+        return left;
+    }
+
 }
