@@ -4,7 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-
+/**
+ *![插入排序存在的问题](https://youpaiyun.zongqilive.cn/image/20200830095048.png)
+ *
+ * 思想:
+ *  希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；
+ *  随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止
+ *
+ */
 public class 希尔排序 {
 
     public static void main(String[] args) {
@@ -27,13 +34,10 @@ public class 希尔排序 {
     // 希尔排序时， 对有序序列在插入时采用 交换法,
     // 思路(算法) ===> 代码
     /**
-     * 思想:
-     * 希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；
-     * 随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止
+     *
      * ![希尔排序法的示意图](https://youpaiyun.zongqilive.cn/image/20200829104449.png)
      */
     public static void shellSort(int[] arr) {
-
         int temp = 0;
         int count = 0;
         // 根据前面的逐步分析，使用循环处理

@@ -33,8 +33,8 @@ public class 快速排序 {
         System.out.println(Arrays.toString(arr));
 
         // quickSort(arr, 0, arr.length - 1);
-        // quickSortV2(arr, 0, arr.length - 1);
-        quickSortV3(arr, 0, arr.length - 1);
+        quickSortV2(arr, 0, arr.length - 1);
+        // quickSortV3(arr, 0, arr.length - 1);
 
         System.out.println("排序后");
         System.out.println(Arrays.toString(arr));
