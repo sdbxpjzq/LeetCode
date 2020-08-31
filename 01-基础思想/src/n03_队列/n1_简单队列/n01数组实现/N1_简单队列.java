@@ -1,4 +1,4 @@
-package n03_队列.n1_简单队列.n01_数组实现;
+package n03_队列.n1_简单队列.n01数组实现;
 
 import java.util.Scanner;
 
