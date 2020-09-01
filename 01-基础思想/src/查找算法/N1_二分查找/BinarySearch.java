@@ -1,4 +1,4 @@
-package 查找算法.二分查找;
+package 查找算法.N1_二分查找;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,6 @@ public class BinarySearch {
             // todo 如果数太大, 两数想加会有溢出问题,
             // todo 采用 int mid = left + (right - left) / 2;
             int mid = (left + right) / 2;
-
             if (array[mid] == target) {
                 return mid;
             } else if (array[mid] < target) {
