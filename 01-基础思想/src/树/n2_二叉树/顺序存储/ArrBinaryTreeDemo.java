@@ -1,4 +1,4 @@
-package 树.二叉树.顺序存储;
+package 树.n2_二叉树.顺序存储;
 
 /**
  * 顺序存储二叉树的特点:
@@ -6,6 +6,8 @@ package 树.二叉树.顺序存储;
  * 2. 第n个元素的左子节点为 (2n +1)
  * 3. 第n个元素的右子节点为 (2n +2)
  * 4. 第n个元素的父子节点为 (n-1)/2
+ *
+ * ![](https://youpaiyun.zongqilive.cn/image/20200908084500.png)
  */
 public class ArrBinaryTreeDemo {
 

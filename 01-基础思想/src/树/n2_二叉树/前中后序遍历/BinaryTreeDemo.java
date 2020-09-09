@@ -1,4 +1,4 @@
-package 树.二叉树.前中后序遍历;
+package 树.n2_二叉树.前中后序遍历;
 
 public class BinaryTreeDemo {
 
