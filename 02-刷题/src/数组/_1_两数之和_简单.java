@@ -17,6 +17,6 @@ package 数组;
 public class _1_两数之和_简单 {
 
     public static int[] twoSum(int[] nums, int target) {
-
+        return nums;
     }
 }

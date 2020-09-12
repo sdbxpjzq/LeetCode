@@ -1,9 +1,7 @@
 package 树.n3_线索化二叉树;
 
 /**
- * ![介绍](https://youpaiyun.zongqilive.cn/image/20200909085850.png)
- *
- * ![应用案例](https://youpaiyun.zongqilive.cn/image/20200909085911.png)
+
  *
  */
 public class ThreadedBinaryTreeDemo {
