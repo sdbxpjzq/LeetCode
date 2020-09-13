@@ -1,4 +1,4 @@
-package 树.n5_哈夫曼编码;
+package 树.哈夫曼编码;
 
 import java.io.*;
 import java.util.*;
