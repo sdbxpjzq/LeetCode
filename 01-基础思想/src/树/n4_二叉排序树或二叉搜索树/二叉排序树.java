@@ -1,6 +1,12 @@
-package 树.二叉排序树;
+package 树.n4_二叉排序树或二叉搜索树;
 
-public class BinarySortTreeDemo {
+/**
+ * 二叉排序树：BST: (Binary Sort(Search) Tree), 对于二叉排序树的任何一个非叶子节点，
+ * 要求左子节点的值比当前节点的值小，右子节点的值比当前节点的值大。
+ *
+ * 特别说明：如果有相同的值，可以将该节点放在左子节点或右子节点
+ */
+public class 二叉排序树 {
 
     public static void main(String[] args) {
         int[] arr = {7, 3, 10, 12, 5, 1, 9, 2};
