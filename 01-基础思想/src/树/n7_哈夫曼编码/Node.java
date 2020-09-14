@@ -1,4 +1,4 @@
-package 树.哈夫曼编码;
+package 树.n7_哈夫曼编码;
 
 //创建Node ,待数据和权值
 public class Node implements Comparable<Node>  {

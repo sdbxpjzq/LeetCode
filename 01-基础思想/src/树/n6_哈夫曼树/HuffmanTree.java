@@ -1,4 +1,4 @@
-package 树.哈夫曼树;
+package 树.n6_哈夫曼树;
 
 import java.util.ArrayList;
 import java.util.Collections;
