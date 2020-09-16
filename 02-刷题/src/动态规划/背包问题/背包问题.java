@@ -3,7 +3,6 @@ package 动态规划.背包问题;
 public class 背包问题 {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         int[] w = {1, 4, 3};//物品的重量
         int[] val = {1500, 3000, 2000}; //物品的价值 这里val[i] 就是前面讲的v[i]
         int m = 4; //背包的容量
