@@ -23,6 +23,8 @@ public class _141_环形链表_简单 {
 
 
     // 快慢指针
+    // 最后一个问题，如果存在环，如何判断环的长度呢？
+    // 方法是，快慢指针相遇后继续移动，直到第二次相遇。两次相遇间的移动次数即为环的长度。
     public boolean hasCycleV2(ListNode head) {
         if (head == null || head.next == null) {
             return false;
