@@ -64,7 +64,7 @@ public class _145_二叉树的后序遍历_中等 {
         while (node != null || !stack.isEmpty()) {
             if (node != null) {
                 stack.add(node);
-                // 头插
+                // zz 头插法
                 list.addFirst(node.val);
                 node = node.right;
             } else {
