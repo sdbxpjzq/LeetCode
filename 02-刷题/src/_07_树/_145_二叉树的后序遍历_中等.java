@@ -1,12 +1,11 @@
 package _07_树;
 
-import javax.swing.tree.TreeNode;
 import java.util.*;
 
 /**
- * 给定一个二叉树，返回它的 前序 遍历。
+ * 给定一个二叉树，返回它的 后序 遍历。
  * <p>
- *  示例:
+ * 示例:
  * <p>
  * 输入: [1,null,2,3]
  * 1
@@ -15,17 +14,18 @@ import java.util.*;
  * /
  * 3
  * <p>
- * 输出: [1,2,3]
+ * 输出: [3,2,1]
  * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
  * <p>
  * <p>
  * <p>
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/binary-tree-preorder-traversal
+ * 链接：https://leetcode-cn.com/problems/binary-tree-postorder-traversal
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class _144_二叉树的前序遍历_中等 {
+public class _145_二叉树的后序遍历_中等 {
     public static void main(String[] args) {
+
         LinkedList<Integer> inputList = new LinkedList<Integer>(Arrays.asList(new Integer[]{3,2,9,null,null,10,null,null,8,null,4,}));
         TreeNode treeNode = createBinaryTree(inputList);
         /**
@@ -37,92 +37,88 @@ public class _144_二叉树的前序遍历_中等 {
          *
          */
 
-        // 前序遍历(中 左 右) [3,2,9,10,8,4]
-        List<Integer> list = preorderTraversalV2(treeNode);
+        // 后序遍历(左 右 中) [9,10,2,4,8,3]
+        List<Integer> list = postorderTraversalV2(treeNode);
         System.out.println(list);
+
+
     }
 
 
 
-    /**
-     * 漫画算法书 写法 , 成为模板 方便记忆
-     */
-    public static List<Integer> preorderTraversalV2(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        LinkedList<Integer> list = new LinkedList<>();
-        TreeNode node = root;
-        while (node != null || !stack.isEmpty()) {
-            if (node != null) {
-                list.add(node.val);
-                stack.push(node);
-                node = node.left;
-            } else {
-                node = stack.pop();
-                node = node.right;
-            }
-        }
-        return list;
-    }
+
 
     /**
-     * 注意栈的后进先出特性，我们应先将当前节点的右孩子入栈，再将左孩子入栈，这样就可以按照前序遍历的中 → 左 → 右访问二叉树了。
-     * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/solution/kan-de-dong-xue-de-ming-bai-by-novice2master/
+     * 模板记忆
+     * 1- 先将先序遍历的根-左-右顺序变为 根-右-左
+     * 2- 再翻转变为后序遍历的 左-右-根，翻转还是改变结果res的加入顺序
+     * 3- 然后把更新辅助结点p的左右顺序换一下即可
      */
-    public List<Integer> preorderTraversalV4(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
+    public static List<Integer> postorderTraversalV2(TreeNode root) {
         LinkedList<Integer> list = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
         if (root == null) {
             return list;
         }
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            if (node != null) {
+                stack.add(node);
+                // 头插
+                list.addFirst(node.val);
+                node = node.right;
+            } else {
+                node = stack.pop();
+                node = node.left;
+            }
 
-        stack.add(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            list.add(node.val);
-            if (node.right != null) {
-                stack.add(node);
-            }
-            if (node.left != null) {
-                stack.add(node);
-            }
         }
         return list;
     }
 
 
     /**
-     * 递归
+     * 递归写法
      */
+    ArrayList<Integer> list = new ArrayList<>();
 
-    LinkedList<Integer> list = new LinkedList<>();
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         if (root != null) {
+            postorderTraversal(root.left);
+            postorderTraversal(root.right);
             list.add(root.val);
-            preorderTraversal(root.left);
-            preorderTraversal(root.right);
         }
 
-        // 也可以是下边这种写法
-        // if (root != null) {
+        // if (root == null) {
         //     return list;
         // }
-        // list.add(root.val);
         // if (root.left != null) {
-        //     preorderTraversal(root.left);
+        //     postorderTraversal(root.left);
         // }
         // if (root.right != null) {
-        //     preorderTraversal(root.right);
+        //     postorderTraversal(root.right);
         // }
+        // list.add(root.val);
         return list;
     }
+
 
     public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
     }
 
@@ -142,5 +138,4 @@ public class _144_二叉树的前序遍历_中等 {
         }
         return node;
     }
-
 }
