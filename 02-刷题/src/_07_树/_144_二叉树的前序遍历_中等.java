@@ -38,7 +38,8 @@ public class _144_二叉树的前序遍历_中等 {
          */
 
         // 前序遍历(中 左 右) [3,2,9,10,8,4]
-        List<Integer> list = preorderTraversalV2(treeNode);
+        // List<Integer> list = preorderTraversalV2(treeNode);
+        List<Integer> list = preorderTraversalV3(treeNode);
         System.out.println(list);
     }
 
@@ -67,28 +68,31 @@ public class _144_二叉树的前序遍历_中等 {
     /**
      * 注意栈的后进先出特性，我们应先将当前节点的右孩子入栈，再将左孩子入栈，这样就可以按照前序遍历的中 → 左 → 右访问二叉树了。
      * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/solution/kan-de-dong-xue-de-ming-bai-by-novice2master/
+     *
+     *
+     * 先把root给弹出来，把右子树节点压进去，然后左子树节点弹出来，最后右子树弹出来，就完成了根左右的顺序。
      */
-    public List<Integer> preorderTraversalV4(TreeNode root) {
+
+
+    public static List<Integer> preorderTraversalV3(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         LinkedList<Integer> list = new LinkedList<>();
         if (root == null) {
             return list;
         }
-
         stack.add(root);
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             list.add(node.val);
             if (node.right != null) {
-                stack.add(node);
+                stack.add(node.right);
             }
             if (node.left != null) {
-                stack.add(node);
+                stack.add(node.left);
             }
         }
         return list;
     }
-
 
     /**
      * 递归
