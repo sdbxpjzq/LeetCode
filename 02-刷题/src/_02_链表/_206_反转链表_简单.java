@@ -1,5 +1,7 @@
 package _02_链表;
 
+import java.util.List;
+
 /**
  * 反转一个单链表。
  * <p>
@@ -29,9 +31,10 @@ public class _206_反转链表_简单 {
 
     }
 
-    /**
-     * https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/
-     */
+        /**
+         * 两两 互换
+         * https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/
+         */
     public static ListNode reverseListV2(ListNode head) {
         ListNode pre = null;
         ListNode cur = head;
