@@ -1,4 +1,4 @@
-package _04_递归和回溯.递归.迷宫;
+package 递归和回溯.递归.迷宫;
 
 public class 迷宫问题 {
 

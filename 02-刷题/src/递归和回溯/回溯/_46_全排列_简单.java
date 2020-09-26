@@ -1,4 +1,4 @@
-package _04_递归和回溯.回溯;
+package 递归和回溯.回溯;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package _04_递归和回溯.回溯.八皇后问题;
+package 递归和回溯.回溯.八皇后问题;
 
 public class 八皇后问题 {
 
