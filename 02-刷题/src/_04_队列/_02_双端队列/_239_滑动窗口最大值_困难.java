@@ -44,8 +44,10 @@ public class _239_滑动窗口最大值_困难 {
     }
 
     /**
+     * 双端队列 (单调队列)
+     * 在双端队列中，要始终保证队头是队列中最大的值或最小值
      * todo 需要总结 https://mp.weixin.qq.com/s/vM6ha7Wwp_EkfRMfLg1dZQ
-     *
+     * https://mp.weixin.qq.com/s/kyae7wCXII4P_ZytE-OF0A
      */
     public static int[] maxSlidingWindow(int[] nums, int k) {
 
