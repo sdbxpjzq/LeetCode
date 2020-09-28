@@ -1,4 +1,4 @@
-package _06_排序.N5快速排序;
+package _06_排序._02_常考的排序算法._05_快速排序;
 
 import java.util.Arrays;
 

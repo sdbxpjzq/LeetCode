@@ -1,4 +1,4 @@
-package _06_排序.N6归并排序;
+package _06_排序._02_常考的排序算法._06_归并排序;
 
 import java.util.Arrays;
 

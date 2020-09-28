@@ -1,4 +1,4 @@
-package _06_排序.N3插入排序;
+package _06_排序._01_基本排序算法._03_插入排序;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package _06_排序.N2选择排序;
+package _06_排序._03_其他排序算法._02_选择排序;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package _06_排序.N1冒泡排序;
+package _06_排序._01_基本排序算法._01_冒泡排序;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package _06_排序.N4希尔排序;
+package _06_排序._03_其他排序算法._04_希尔排序;
 
 import java.util.Arrays;
 
