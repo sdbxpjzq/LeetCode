@@ -1,4 +1,4 @@
-package _10_KMP算法;
+package KMP算法;
 
 import java.util.Arrays;
 

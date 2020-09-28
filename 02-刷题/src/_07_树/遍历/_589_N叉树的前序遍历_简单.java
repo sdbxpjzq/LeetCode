@@ -14,4 +14,5 @@ package _07_树.遍历;
  * https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/
  */
 public class _589_N叉树的前序遍历_简单 {
+
 }
