@@ -13,6 +13,11 @@ public class 冒泡排序 {
     /**
      * 推荐这个
      * flag 用来做优化
+     *
+     * 空间复杂度: O(1)
+     * 时间复杂度: O(n^2)
+     * 稳定的排序算法
+     *
      */
     private static void maoPao(int[] nums) {
         int count = 0;

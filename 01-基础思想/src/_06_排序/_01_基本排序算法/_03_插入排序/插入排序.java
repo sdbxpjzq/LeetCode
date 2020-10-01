@@ -18,6 +18,17 @@ public class 插入排序 {
 
     }
 
+    public void m1(int[] nums) {
+        for (int i = 1, j=0; i < nums.length; i++) {
+            int current = nums[i];
+            for (j = i-1; j >0 && nums[j]>current ; j--) {
+                nums[j+1] = nums[j];
+            }
+            nums[j+1] = current;
+        }
+    }
+
+
     /**
      * 插入排序
      * 插入式排序属于内部排序法，是对于欲排序的元素以插入的方式找寻该元素的适当位置，以达到排序的目的。
@@ -30,6 +41,11 @@ public class 插入排序 {
      * ![](https://youpaiyun.zongqilive.cn/image/20200829100759.png)
      * <p>
      * 首先把第一个数看做有序, 然后依次后面的无序列表的每一个数找位置, 并插入
+     *
+     *
+     * 空间复杂度: O(1)
+     * 时间复杂度: O(n^2)
+     * 稳定排序
      */
     public static void insertSort(int[] arr) {
         int insertVal = 0;

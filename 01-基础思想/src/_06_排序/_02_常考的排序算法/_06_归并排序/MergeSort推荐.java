@@ -22,7 +22,6 @@ public class MergeSort推荐 {
         System.out.println(Arrays.toString(arr));
 
 
-        int temp[] = new int[arr.length]; //归并排序需要一个额外空间
         mergeSort(arr, 0, arr.length - 1);
 
         System.out.println("排序后");

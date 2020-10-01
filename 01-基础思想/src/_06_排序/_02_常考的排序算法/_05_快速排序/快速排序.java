@@ -3,6 +3,17 @@ package _06_排序._02_常考的排序算法._05_快速排序;
 import java.util.Arrays;
 
 /**
+ * 算法思想:
+ * 也采用了分治的思想
+ * 把原始的数组筛选成较小和较大的两个子数组, 然后递归的排序两个子数组
+ * 在分成较小和较大的两个子数组过程中, 如何选定一个基准值很重要
+ *
+ *
+ * - 只需要开辟`O(1)空间`, 直接对原数组修改
+ *
+ * - 递归次数为`logn`,所以整理的空间复杂度完全取决于压栈的次数
+ *
+ *
  * 如何选择基准
  * 1. 选择第一个或者最后一个
  * 如果待排序数是随机的，那么选择第一个或者最后一个作基准是没有什么问题的，
@@ -163,41 +174,8 @@ public class 快速排序 {
     }
 
 
-    /**
-     * 挖坑法的另一种形式
-     */
-    private static void quickSortV3(int[] arr, int left, int right) {
-        if (left >= right) {
-            // 递归退出
-            return;
-        }
-        int pivot;
-        if (left < right) {
-            pivot = Partition(arr, left, right);
-            quickSortV3(arr, left, pivot - 1);// left ~ pivot-1 的元素都比小
-            quickSortV3(arr, pivot + 1, right);
-        }
-    }
 
-    private static int Partition(int[] arr, int left, int right) {
-        int pivot = arr[left];
-        while (left < right) {
 
-            while (left < right && arr[right] >= pivot) {
-                right--;
-            }
-            if (left < right) {
-                arr[left] = arr[right];
-            }
-            while (left < right && arr[left] <= pivot) {
-                left++;
-            }
-            if (left < right) {
-                arr[right] = arr[left];
-            }
-        }
-        arr[left] = pivot;
-        return left;
-    }
+
 
 }
