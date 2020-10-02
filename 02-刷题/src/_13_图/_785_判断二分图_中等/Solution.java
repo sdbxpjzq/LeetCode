@@ -1,4 +1,4 @@
-package 图._785_判断二分图_中等;
+package _13_图._785_判断二分图_中等;
 
 import java.util.LinkedList;
 import java.util.Queue;
