@@ -1,4 +1,4 @@
-package 递归和回溯.递归._247_中心对称数II_中等;
+package _13_递归和回溯.递归._247_中心对称数II_中等;
 
 import java.util.ArrayList;
 import java.util.Arrays;
