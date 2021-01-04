@@ -12,7 +12,7 @@ public class Solution_1 {
     }
 
     public static int lengthOfLongestSubstring(String s) {
-        if (s == null) {
+        if (s == null || s.isEmpty()) {
             return 0;
         }
         int maxLen = 0;
