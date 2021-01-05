@@ -8,6 +8,7 @@ public class Solution_1 {
         if (root.left == null && root.right == null) { // 遍历到叶子节点
             return sum - root.val == 0;                  // 如果满足这个就返回true
         }
+        // 左子树 或者 右子树存在 就行
         return hasPathSum(root.left, sum - root.val) ||
                 hasPathSum(root.right, sum - root.val);      // 大问题转成两个子树的问题
     }
