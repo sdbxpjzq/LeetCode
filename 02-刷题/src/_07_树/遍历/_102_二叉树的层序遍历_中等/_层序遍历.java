@@ -9,14 +9,13 @@ import java.util.Queue;
 
 public class _层序遍历 {
     Queue<TreeNode> queue = new LinkedList<TreeNode>();
-    LinkedList<Integer> list = new LinkedList<>();
+    ArrayList<Integer> list = new ArrayList<>();
 
     //层序遍历 利用队列
     public List<Integer> levelOrderV(TreeNode root) {
         if (root == null) {
             return list;
         }
-
         // 加入队列
         queue.add(root);
         while (!queue.isEmpty()) {
