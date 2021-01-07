@@ -28,18 +28,18 @@ public class Solution_2 {
     * */
 
     public static int lengthOfLongestSubstring(String s) {
-        if (s == null || s.isEmpty()) {
-            return 0;
-        }
-        int left = 0, right = 0, maxLen = 0;
-        char[] chars = s.toCharArray();
-        HashSet<Character> set = new HashSet<>();
-        for (; right < chars.length; right++) {
-            if (set.add(chars[right])) {
-                // 没完成
-                return 0;
-            }
-        }
-
+        // if (s == null || s.isEmpty()) {
+        //     return 0;
+        // }
+        // int left = 0, right = 0, maxLen = 0;
+        // char[] chars = s.toCharArray();
+        // HashSet<Character> set = new HashSet<>();
+        // for (; right < chars.length; right++) {
+        //     if (set.add(chars[right])) {
+        //         // 没完成
+        //         return 0;
+        //     }
+        // }
+return 0;
     }
 }
