@@ -1,4 +1,4 @@
-package 设计.LRU;
+package 设计._146_LRU缓存机制_中等;
 
 import java.util.HashMap;
 import java.util.Map;
