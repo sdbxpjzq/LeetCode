@@ -1,4 +1,4 @@
-package _14_动态规划._121_买卖股票的最佳时机_简单;
+package _17_股票买卖._121_买卖股票的最佳时机_简单;
 
 public class Solution_1 {
     /**
