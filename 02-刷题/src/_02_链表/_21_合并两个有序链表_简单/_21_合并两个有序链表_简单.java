@@ -1,20 +1,6 @@
-package _02_链表;
+package _02_链表._21_合并两个有序链表_简单;
 
-/**
- * 21. 合并两个有序链表 简单
- * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
- * <p>
- *  
- * <p>
- * 示例：
- * <p>
- * 输入：1->2->4, 1->3->4
- * 输出：1->1->2->3->4->4
- * <p>
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/merge-two-sorted-lists
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+
 public class _21_合并两个有序链表_简单 {
 
     /**
@@ -40,10 +26,12 @@ public class _21_合并两个有序链表_简单 {
      */
     public ListNode mergeTwoLists(ListNode linked1, ListNode linked2) {
         //下面4行是空判断
-        if (linked1 == null)
+        if (linked1 == null) {
             return linked2;
-        if (linked2 == null)
+        }
+        if (linked2 == null) {
             return linked1;
+        }
         // dummy: 傀儡, 假
         ListNode dummy = new ListNode(0);
         // cur指针是复制的dummy指针，dummy始终都在头节点处，而cur相当于不断地在穿针引线串联增加节点
@@ -102,20 +90,5 @@ public class _21_合并两个有序链表_简单 {
     }
 
 
-    public class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 }
