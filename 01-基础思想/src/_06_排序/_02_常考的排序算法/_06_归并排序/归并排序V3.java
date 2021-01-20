@@ -28,19 +28,19 @@ public class 归并排序V3 {
         System.out.println(Arrays.toString(arr));
     }
 
-    private static void sort(int[] arr, int lo, int hi) {
+    public static void sort(int[] arr, int start, int end) {
         // 是不是只剩下最后一个元素
-        if (lo >= hi) {
+        if (start >= end) {
             return;
         }
         // 从中间将数组分成2个部分
-        int mid = lo + (hi - lo) /2;
+        int mid = start + (end - start) /2;
         // 递归的 分别将左右2部分排好序
-        sort(arr, lo, mid);
-        sort(arr, mid +1, hi);
+        sort(arr, start, mid);
+        sort(arr, mid +1, end);
 
         // 将排好序的 左右2部分 合并
-        merge(arr, lo, mid , hi);
+        merge(arr, start, mid , end);
     }
 
 

@@ -1,7 +1,13 @@
 package _06_排序._02_常考的排序算法._05_快速排序;
 
 public class 快速排序V2 {
-
+    public static void main(String[] args) {
+        int[] arr = {1, 6, 2, 4, 4, 3, 5, 6};
+        quickSortV3(arr, 0, arr.length-1);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
     /**
      * 挖坑法的另一种形式
      */
@@ -17,22 +23,31 @@ public class 快速排序V2 {
         quickSortV3(arr, pivot + 1, right);
     }
 
-    private static int Partition(int[] arr, int left, int right) {
-        int pivot = arr[left];
+    private static int Partition(int[] arr, int startIndex, int endIndex) {
+        int pivot = arr[startIndex];
+        int left = startIndex;
+        int right = endIndex;
         while (left < right) {
             while (left < right && arr[right] >= pivot) {
                 right--;
             }
-            if (left < right) {
-                arr[left] = arr[right];
-            }
+            // if (left < right) {
+            //     arr[left] = arr[right];
+            // }
             while (left < right && arr[left] <= pivot) {
                 left++;
             }
+            // if (left < right) {
+            //     arr[right] = arr[left];
+            // }
             if (left < right) {
+                int tmp = arr[right];
                 arr[right] = arr[left];
+                arr[left] = tmp;
             }
         }
+        // 双指针重合, 交换 pivot 和 left
+        arr[startIndex] = arr[left];
         arr[left] = pivot;
         return left;
     }

@@ -27,18 +27,17 @@ public class BinarySearch {
      * 非递归 推荐这个
      */
     public static int binarySearchV3(int[] array, int target) {
-        int left = 0;
-        int right = array.length - 1;
-        while (left <= right) {
+        int start = 0;
+        int end = array.length - 1;
+        while (start <= end) {
             // todo 如果数太大, 两数想加会有溢出问题,
-            // todo 采用 int mid = left + (right - left) / 2;
-            int mid = (left + right) / 2;
+            int mid = start + (end - start) / 2;
             if (array[mid] == target) {
                 return mid;
             } else if (array[mid] < target) {
-                left = mid + 1;
+                start = mid + 1;
             } else {
-                right = mid - 1;
+                end = mid - 1;
             }
         }
         return -1;
@@ -49,30 +48,24 @@ public class BinarySearch {
      * 递归的方式
      *
      * @param arr     数组
-     * @param left    左边的索引
-     * @param right   右边的索引
+     * @param start    左边的索引
+     * @param end   右边的索引
      * @param target 要查找的值
      * @return 如果找到就返回下标，如果没有找到，就返回 -1
      */
-    public static int binarySearch(int[] arr, int left, int right, int target) {
-
-
-        // 当 left > right 时，说明递归整个数组，但是没有找到
-        if (left > right) {
+    public static int binarySearch(int[] arr, int start, int end, int target) {
+        // 当 start > end 时，说明递归整个数组，但是没有找到
+        if (start > end) {
             return -1;
         }
-        int mid = (left + right) / 2;
-        int midVal = arr[mid];
-
-        if (target > midVal) { // 向 右递归
-            return binarySearch(arr, mid + 1, right, target);
-        } else if (target < midVal) { // 向左递归
-            return binarySearch(arr, left, mid - 1, target);
+        int mid = start + (end - start) / 2;
+        if (target > arr[mid]) { // 向 右递归
+            return binarySearch(arr, mid + 1, end, target);
+        } else if (target < arr[mid]) { // 向左递归
+            return binarySearch(arr, start, mid - 1, target);
         } else {
-
             return mid;
         }
-
     }
 
     //完成一个课后思考题:
