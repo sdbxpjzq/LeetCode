@@ -5,25 +5,22 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Solution_1 {
-    private static List result = new ArrayList<List<Integer>>();
-
-
-
+    private List result = new ArrayList<List<Integer>>();
     public List<List<Integer>> permuteUnique(int[] nums) {
         if (nums == null || nums.length == 0) {
             return result;
         }
+        //注意 先排序
         Arrays.sort(nums);
         helper(nums, new ArrayList<>(), new boolean[nums.length]);
         return result;
     }
 
-    public void helper(int[] nums, List<Integer> res, boolean[] visited) {
-        if (res.size() == nums.length) {
-            result.add(new ArrayList<>(res));
+    public void helper(int[] nums, List<Integer> path, boolean[] visited) {
+        if (path.size() == nums.length) {
+            result.add(new ArrayList<>(path));
             return;
         }
-
         for (int i = 0; i < nums.length; i++) {
             if (visited[i]) {
                 continue;
@@ -31,10 +28,10 @@ public class Solution_1 {
             if (i - 1 >= 0 && nums[i] == nums[i - 1] && visited[i - 1]) {
                 continue;
             }
-            res.add(nums[i]);
+            path.add(nums[i]);
             visited[i] = true;
-            helper(nums, res, visited);
-            res.remove(res.size() - 1);
+            helper(nums, path, visited);
+            path.remove(path.size() - 1);
             visited[i] = false;
         }
     }

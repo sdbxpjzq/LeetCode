@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class CreateBT {
-    LinkedList<Integer> inputList = new LinkedList<Integer>(Arrays.asList(new Integer[]{3,2,9,null,null,10,null,null,8,null,4,}));
-    TreeNode treeNode = createBinaryTree(inputList);
+
 
     // 创建二叉树
     public static TreeNode createBinaryTree(LinkedList<Integer> inputList){

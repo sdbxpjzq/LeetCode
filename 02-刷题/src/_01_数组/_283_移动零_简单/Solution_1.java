@@ -32,6 +32,5 @@ public class Solution_1 {
                 nums[i] = 0;
             }
         }
-
     }
 }

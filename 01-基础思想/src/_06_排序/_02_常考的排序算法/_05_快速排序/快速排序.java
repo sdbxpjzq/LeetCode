@@ -42,135 +42,51 @@ public class 快速排序 {
         System.out.println(Arrays.toString(arr));
 
         // quickSort(arr, 0, arr.length - 1);
-        quickSortV2(arr, 0, arr.length - 1);
+        quickSortV3(arr, 0, arr.length - 1);
         // quickSortV3(arr, 0, arr.length - 1);
 
         System.out.println("排序后");
         System.out.println(Arrays.toString(arr));
     }
 
-
-    /**
-     * 选择三数中值
-     */
-    private static int medianPivot(int[] A, int left, int right) {
-        int center = (left + right) / 2;
-        if (A[left] > A[center]) {
-            swap(A, left, center);
-        }
-        if (A[left] > A[right]) {
-            swap(A, left, right);
-        }
-        if (A[center] > A[right]) {
-            swap(A, center, right);
-        }
-        /*交换中值和倒数第二个元素*/
-        swap(A, center, right - 1);
-        return A[right - 1];
-
-    }
-
-    /**
-     * 随机取 pivot
-     */
-    private static int randomPivot(int[] nums, int start, int end) {
-        int randIndex = (int) (Math.random() % (end - start) + start);
-        return nums[randIndex];
-    }
-
-    /**
-     * todo 挖坑填数 关注这个吧, 性能好一些
-     * 可以取第一个元素 做为 pivot,
-     * 1. 先从右边开始找, 再从左边找, 顺序挺重要的
-     */
-    private static void quickSortV2(int[] arr, int start, int end) {
-        if (start >= end) {
+    private static void quickSortV3(int[] arr, int left, int right) {
+        // 是否只剩下一个元素
+        if (left >= right) {
             // 递归退出
             return;
         }
+        // 基准值
+        int pivot = partition(arr, left, right);
+        quickSortV3(arr, left, pivot - 1);// left ~ pivot-1 的元素都比小
+        quickSortV3(arr, pivot + 1, right);
+    }
 
-        int left = start; //左下标
-        int right = end; //右下标
-        //pivot 取第一个值, 挖坑填数
-        int pivot = arr[left];
+    //划分方法
+    private static int partition(int[] a, int left, int right) {
+        int mid = left;
 
-        //比pivot 值大放到右边
-        while (left < right) {
-            //必须先找右边 在pivot的右边一直找,找到小于等于pivot值,才退出
-            while (left < right && arr[right] >= pivot) {
+        while(left<right) {
+            while(left<right && a[right]>=a[mid]){
                 right--;
             }
 
-            if (left < right) {
-                arr[left] = arr[right];
-            }
-
-            //再找左边  在pivot的左边一直找,找到大于等于pivot值,才退出
-            while (left < right && arr[left] <= pivot) {
+            while(left<right && a[left]<=a[mid]) {
                 left++;
             }
 
-            if (left < right) {
-                arr[right] = arr[left];
-            }
-
-
-            if (left >= right) {
-                arr[left] = pivot;
+            if(left<right) {
+                swap(a,left,right);
             }
         }
-        quickSortV2(arr, start, right - 1);
-        quickSortV2(arr, right + 1, end);
-
+        swap(a,mid,left);
+        return left;
     }
 
-
-    /**
-     * 交换法
-     */
-    private static void quickSort(int[] arr, int L, int R) {
-        if (L >= R) {
-            // 递归退出
-            return;
-        }
-
-        int left = L; //左下标
-        int right = R; //右下标
-        //pivot 中轴值
-        int pivot = arr[(left + right) / 2];
-        System.out.println(Arrays.toString(arr));
-        System.out.println("基准值:" + pivot);
-        //while循环的目的是让比pivot 值小放到左边
-        //比pivot 值大放到右边
-        while (left < right) {
-            //在pivot的左边一直找,找到大于等于pivot值,才退出
-            while (left < right && arr[left] < pivot) {
-                left++;
-            }
-            //在pivot的右边一直找,找到小于等于pivot值,才退出
-            while (left < right && arr[right] > pivot) {
-                right--;
-            }
-            if (left < right) {
-                //交换arr[left]和arr[right]的位置
-                int temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
-            }
-            //继续遍历
-            left++;
-            right--;
-
-        }
-        quickSort(arr, L, right);
-        quickSort(arr, left, R);
-    }
-
-
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+    //交换方法
+    private static void swap(int[] a, int left, int right) {
+        int t = a[left];
+        a[left] = a[right];
+        a[right] = t;
     }
 
 

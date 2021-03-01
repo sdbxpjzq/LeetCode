@@ -12,18 +12,17 @@ public class Solution_2 {
     LinkedList<Integer> list = new LinkedList<>();
     Stack<TreeNode> stack = new Stack<>();
 
+
     public List<Integer> inorderTraversal(TreeNode root) {
-        while (true) {
-            while (root != null) {
-                stack.add(root);
-                root = root.left;
-            }
-            if (!stack.isEmpty()) {
-                root = stack.pop();
-                list.add(root.val);
-                root = root.right;
-            } else {
-                break;
+        TreeNode node = root;
+        while (node!=null || !stack.isEmpty()) {
+            if (node!=null) {
+                stack.push(node);
+                node = node.left;
+            }else {
+                 node = stack.pop();
+                 list.add(node.val);
+                 node = node.right;
             }
         }
         return list;
