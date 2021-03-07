@@ -16,7 +16,7 @@ package _01_数组;
  */
 public class _26_删除排序数组中的重复项_简单 {
     public static void main(String[] args) {
-        int[] nums = {1,1,2,3,4,4,5};
+        int[] nums = {1, 1, 2, 3, 4, 4, 5};
         int i = new _26_删除排序数组中的重复项_简单().removeDuplicates(nums);
     }
 
@@ -27,14 +27,17 @@ public class _26_删除排序数组中的重复项_简单 {
      * @return 新的长度
      */
     public int removeDuplicates(int[] nums) {
-        int w = 0;
-        // 从第一个开始判断
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i - 1] != nums[i]) {
-                nums[++w] = nums[i];
+        // 快慢指针
+        int slow = 0, fast = 1;
+        while (fast < nums.length) {
+            if (nums[slow] == nums[fast]) {
+                fast++;
+            } else {
+                slow++;
+                nums[slow] = nums[fast];
+                fast++;
             }
         }
-
-        return w + 1;
+        return slow + 1;
     }
 }
