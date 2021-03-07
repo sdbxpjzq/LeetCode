@@ -27,6 +27,6 @@ public class Solution_2 {
                 node = node.right;
             }
         }
-        return 0;
+        return list.get(list.size()-k) != null ? list.get(list.size()-k) :0;
     }
 }

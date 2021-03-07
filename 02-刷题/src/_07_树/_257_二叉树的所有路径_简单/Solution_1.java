@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Solution_1 {
     ArrayList<String> result = new ArrayList<>();
-    ArrayList<Integer> path = new ArrayList<>();
+    List<Integer> path = new ArrayList<>();
+    List<List<Integer>> paths = new ArrayList<>();
 
     public List<String> binaryTreePaths(TreeNode root) {
         m2(root);
@@ -41,6 +42,22 @@ public class Solution_1 {
         }
         sPath.append(path.get(path.size() - 1));
         return sPath.toString();
-
     }
+
+    public void dfs(TreeNode root) {
+        // 递归退出条件
+        if (root == null) {
+            return;
+        }
+        path.add(root.val);
+        if (root.left == null && root.right==null) {
+            paths.add(new ArrayList<>(path));
+        }else {
+            dfs(root.left);
+            dfs(root.right);
+        }
+        // 回溯
+        path.remove(path.size()-1);
+    }
+
 }

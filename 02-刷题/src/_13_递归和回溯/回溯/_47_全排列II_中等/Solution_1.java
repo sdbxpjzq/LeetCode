@@ -36,5 +36,39 @@ public class Solution_1 {
         }
     }
 
+    public static void main(String[] args) {
+        int[] data=new int[] {1,0,0,2,2,0,1,1,2,0,2};
+        data=sort(data);
+        for(int o:data) {
+            System.out.println(o);
+        }
+    }
+
+    public static int[] sort(int[] data) {
+        int l = 0;
+        int r = data.length - 1;
+        int cur = 0;
+        while (cur != r) {
+            if (data[cur] == 0) {
+                swap(data, cur,l);
+                l++;
+                cur--;
+            }
+            if (data[cur] == 2) {
+                swap(data, cur,r);
+                r--;
+                cur--;
+            }
+            cur++;
+        }
+        return data;
+    }
+    private static void swap(int[] a, int left, int right) {
+        int t = a[left];
+        a[left] = a[right];
+        a[right] = t;
+    }
+
+
 
 }

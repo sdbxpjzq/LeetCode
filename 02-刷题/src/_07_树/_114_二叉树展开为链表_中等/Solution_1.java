@@ -2,33 +2,34 @@ package _07_树._114_二叉树展开为链表_中等;
 
 public class Solution_1 {
     public void flatten(TreeNode root) {
-        preOrder(root);
+        help(root);
     }
 
-    public TreeNode preOrder(TreeNode current) {
+    public TreeNode help(TreeNode root) {
         // root = null的情况
-        if (current == null) {
-            return current;
+        if (root == null) {
+            return root;
         }
-        TreeNode right = current.right;
-        TreeNode left = current.left;
-
+        TreeNode right = root.right;
+        TreeNode left = root.left;
         if (left != null) {
             //注意需要将左子树置null
-            current.left = null;
+            root.left = null;
             // 链表链接左子树
-            current.right = left;
+            root.right = left;
             // 获得链接的尾节点
-            current = preOrder(left);
+            root = help(left);
         }
-
         if (right != null) {
             // 链表链接右子树
-            current.right = right;
+            root.right = right;
             // 获得链接的尾节点
-            current = preOrder(right);
+            root = help(right);
         }
         // 返回链接的尾节点
-        return current;
+        return root;
     }
+
+
+
 }

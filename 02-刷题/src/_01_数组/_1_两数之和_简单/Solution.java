@@ -1,6 +1,9 @@
 package _01_数组._1_两数之和_简单;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Solution {
 
@@ -25,5 +28,29 @@ public class Solution {
             }
         }
         throw new IllegalArgumentException("No two sum solution");
+    }
+
+    private List<Integer> path = new ArrayList<>();
+    private List<List<Integer>> result = new ArrayList<>();
+
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        help(root, targetSum);
+        return result;
+    }
+    public void help(TreeNode root, int sum) {
+        if (root == null) {
+            return;                // 遍历到null节点
+        }
+        path.add(root.val);
+        sum -= root.val;
+        if (root.left == null && root.right == null && sum == 0) { // 遍历到叶子节点
+            result.add(new ArrayList<>(path));
+            // 不能进行return
+            // return;
+        }else {
+            help(root.left,sum);
+            help(root.right,sum);
+        }
+        path.remove(path.size()-1);
     }
 }
