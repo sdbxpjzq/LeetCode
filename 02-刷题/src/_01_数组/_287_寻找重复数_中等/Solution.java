@@ -33,6 +33,7 @@ public class Solution {
         }
     }
 
+    // https://mp.weixin.qq.com/s/s82YbZrrXEFUc_9upg51Xg
     public int findDuplicateV2(int[] nums) {
         int left = 1;
         int right = nums.length - 1;
