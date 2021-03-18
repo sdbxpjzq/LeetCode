@@ -47,6 +47,7 @@ public class 剑指Offer_22_链表中倒数第k个节点 {
             fast = fast.next;
             slow = slow.next;
         }
+        slow.next = slow.next.next;
         return slow;
     }
 
@@ -57,5 +58,23 @@ public class 剑指Offer_22_链表中倒数第k个节点 {
         ListNode(int x) {
             val = x;
         }
+    }
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        // 删除
+        slow.next = slow.next.next;
+        return dummy.next;
     }
 }

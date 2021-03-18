@@ -36,6 +36,32 @@ public class _25_K个一组翻转链表_困难 {
      *
      */
     public ListNode reverseKGroup(ListNode head, int k) {
+        // 先找到一段
+        ListNode tail = head;
+        for (int i = 0; i < k; i++) {
+            if (tail == null) {
+                // 剩下的不够 一组
+                return head;
+            }
+            tail = tail.next;
+        }
+        ListNode newHead = reverse206(head, tail);
+        head.next = reverseKGroup(tail, k);
+        return newHead;
+    }
+
+    private ListNode reverse206(ListNode head, ListNode tail) {
+        ListNode newHead = null;
+        while (head != tail) {
+            ListNode tmp = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = tmp;
+        }
+        return newHead;
+    }
+
+    public ListNode reverseKGroupV2(ListNode head, int k) {
         // 增加虚拟头结点
         ListNode dummy = new ListNode(0);
         dummy.next = head;

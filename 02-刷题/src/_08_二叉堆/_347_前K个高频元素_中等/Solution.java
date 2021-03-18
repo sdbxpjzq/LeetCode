@@ -71,4 +71,19 @@ public class Solution {
         }
         return result;
     }
+
+    public int[] topKFrequentV2(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        // 求前 k 大，用小堆，求前 k 小，用大堆
+        PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>((v1, v2) -> v2.getValue() - v1.getValue());
+        heap.addAll(map.entrySet());
+        int[] res = new int[k];
+        while (!heap.isEmpty() && k > 0) {
+            res[--k] = heap.poll().getKey();
+        }
+        return res;
+    }
 }

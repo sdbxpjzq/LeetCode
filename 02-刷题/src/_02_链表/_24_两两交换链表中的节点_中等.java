@@ -32,16 +32,16 @@ public class _24_两两交换链表中的节点_中等 {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
 
-        ListNode pre = dummy;
-        while ((head != null) && (head.next != null)) {
+        ListNode cur = dummy;
+        while (head != null && head.next != null) {
             ListNode firstNode = head;
             ListNode secondNode = firstNode.next;
 
-            pre.next = secondNode;
+            cur.next = secondNode;
             firstNode.next = secondNode.next;
             secondNode.next = firstNode;
 
-            pre = firstNode;
+            cur = firstNode;
             head = firstNode.next;
 
             /*ListNode cur = pre.next;
@@ -74,22 +74,9 @@ public class _24_两两交换链表中的节点_中等 {
         }
         ListNode firstNode = head;
         ListNode secondNode = head.next;
-
-        firstNode.next  = swapPairsV2(secondNode.next);
+        firstNode.next  = swapPairs(secondNode.next);
         secondNode.next = firstNode;
-
-
         return secondNode;
-
-
-
-
-
-        // ListNode next = head.next;
-        // head.next = swapPairs(next.next);
-        // next.next = head;
-
-        // return next;
     }
 
     public static class ListNode {

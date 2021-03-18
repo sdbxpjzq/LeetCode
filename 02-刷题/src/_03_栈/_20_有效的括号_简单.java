@@ -69,4 +69,6 @@ public class _20_有效的括号_简单 {
         }
         return stack.isEmpty();
     }
+
+
 }

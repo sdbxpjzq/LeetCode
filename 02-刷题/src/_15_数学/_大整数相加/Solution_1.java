@@ -4,7 +4,7 @@ public class Solution_1 {
     public static void main(String[] args) {
         //   324+ 57
 
-        String a = jisuan("324", "57");
+        String a = jisuan("999", "99");
         System.out.println(a);
     }
 
@@ -38,9 +38,9 @@ public class Solution_1 {
         //zz 再次倒序 输出, 去掉首部0
         StringBuilder str = new StringBuilder();
         for (int i = res.length - 1; i >= 0; i--) {
-            if (res[i] != 0) {
+            // if (res[i] != 0) {
                 str.append(res[i]);
-            }
+            // }
         }
         return str.toString();
     }

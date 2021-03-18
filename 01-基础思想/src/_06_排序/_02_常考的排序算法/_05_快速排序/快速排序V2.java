@@ -1,13 +1,38 @@
 package _06_排序._02_常考的排序算法._05_快速排序;
 
+import java.util.Arrays;
+import java.util.Stack;
+
 public class 快速排序V2 {
     public static void main(String[] args) {
         int[] arr = {1, 6, 2, 4, 4, 3, 5, 6};
-        quickSortV3(arr, 0, arr.length-1);
+        nonRec_quickSort(arr, 0, arr.length-1);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
     }
+    private static void nonRec_quickSort(int[] arr, int left, int right) {
+        // 用栈模拟
+        Stack<Integer> stack = new Stack<>();
+        if (left < right) {
+            stack.push(right);
+            stack.push(left);
+            while (!stack.isEmpty()) {
+                int l = stack.pop();
+                int r = stack.pop();
+                int pivot = Partition(arr, l, r);
+                if (l < pivot - 1) {
+                    stack.push(pivot - 1);
+                    stack.push(l);
+                }
+                if (r > pivot + 1) {
+                    stack.push(r);
+                    stack.push(pivot + 1);
+                }
+            }
+        }
+    }
+
     /**
      * 挖坑法的另一种形式
      */
