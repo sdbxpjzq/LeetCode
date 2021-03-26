@@ -14,7 +14,6 @@ import java.util.Stack;
  * 示例：
  * 输入：(7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
  * 输出：7 -> 8 -> 0 -> 7
- *
  */
 
 public class _445_两数相加II_中等 {
@@ -48,24 +47,27 @@ public class _445_两数相加II_中等 {
             l2 = l2.next;
         }
 
-        ListNode head = null;
+        ListNode newHead = null;
         int carry = 0;
         while (!s1.isEmpty() || !s2.isEmpty() || carry > 0) {
-            int sum = (s1.isEmpty() ? 0 : s1.pop()) +
-                    (s2.isEmpty() ? 0 : s2.pop()) + carry;
-            ListNode n = new ListNode(sum % 10);
+            int n1 = s1.isEmpty() ? 0 : s1.pop();
+            int n2 = s2.isEmpty() ? 0 : s2.pop();
+            int sum = n1 + n2 + carry;
             carry = sum / 10;
+            int val = sum % 10;
+            ListNode node = new ListNode(val);
             // 头插法
-            n.next = head;
-            head = n;
+            node.next = newHead;
+            newHead = node;
         }
-        return head;
+        return newHead;
     }
 
 
     static class ListNode {
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
         }
