@@ -2,26 +2,29 @@ package _06_字符串._680_验证回文字符串Ⅱ_简单;
 
 public class Solution_1 {
     public boolean validPalindrome(String s) {
-        int left = 0;
-        int right = s.length() - 1;
-        while (left < right) {
-            if (s.charAt(left) == s.charAt(right)) {
-                left++;
-                right--;
+        char[] chars = s.toCharArray();
+
+        int start = 0;
+        int end = s.length() - 1;
+        while (start < end) {
+            if (chars[start] == chars[end]) {
+                start++;
+                end--;
             } else {
-                return isPalindrome(s, left, right - 1) || isPalindrome(s, left + 1, right);
+                return checkHuiWen(chars, start, end - 1) || checkHuiWen(chars, start + 1, end);
             }
         }
         return true;
     }
 
-    private boolean isPalindrome(String s, int left, int right) {
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
+    private boolean checkHuiWen(char[] chars, int start, int end) {
+        while (start < end) {
+            if (chars[start] == chars[end]) {
+                start++;
+                end--;
+            } else {
                 return false;
             }
-            left++;
-            right--;
         }
         return true;
     }

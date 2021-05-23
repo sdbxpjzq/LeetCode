@@ -13,7 +13,6 @@ public class Solution {
         }
         Queue<TreeNode> queue = new LinkedList<>();
         // 遍历标志
-        boolean flag = true;
         queue.add(root);
         while (!queue.isEmpty()) {
             LinkedList<Integer> tmp = new LinkedList<>();
