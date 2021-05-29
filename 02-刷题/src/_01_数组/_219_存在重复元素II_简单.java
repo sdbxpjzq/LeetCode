@@ -1,5 +1,7 @@
 package _01_数组;
 
+import java.util.HashSet;
+
 /**
  * 219 存在重复元素 II
  *给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 i 和 j，
@@ -18,4 +20,39 @@ package _01_数组;
  * 输出: false
  */
 public class _219_存在重复元素II_简单 {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        int len = nums.length;
+        if (len<2) {
+            return false;
+        }
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < len; i++) {
+            if (set.contains(nums[i])) {
+                return true;
+            }
+            set.add(nums[i]);
+            if (set.size() == k+1) {
+                set.remove(nums[i-k]);
+            }
+        }
+        return false;
+    }
+
+    public boolean containsNearbyDuplicateV2(int[] nums, int k) {
+        int len = nums.length;
+        if (len<2) {
+            return false;
+        }
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < len; i++) {
+            if (set.add(nums[i])) {
+                if (set.size() == k+1) {
+                    set.remove(nums[i-k]);
+                }
+            }else {
+                return true;
+            }
+        }
+        return false;
+    }
 }

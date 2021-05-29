@@ -2,30 +2,23 @@ package _14_动态规划._213_打家劫舍II_中等;
 
 public class Solution_1 {
     public int rob(int[] nums) {
-        int n = nums.length;
-        if (n == 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return nums[0];
-        }
-        if (n == 2) {
-            return Math.max(nums[0], nums[1]);
-        }
-        int r1 = rob198(nums, 0, n - 2);
-        int nr1 = rob198(nums, 1, n - 1);
-
-        return Math.max(r1, nr1);
+        if (nums == null || nums.length == 0) return 0;
+        int len = nums.length;
+        if (len == 1) return nums[0];
+        if (len== 2) return Math.max(nums[0], nums[1]);
+        return Math.max(help(nums, 0, len - 2), help(nums, 1, len - 1));
     }
 
-    private int rob198(int[] nums, int start, int end) {
-        int R = 0;
-        int NR = 0;
-        for (int i = start; i <= end; i++) {
-            int max = Math.max(R, NR);
-            R = nums[i] + NR;
-            NR = max;
+    private int help(int[] nums, int left, int right) {
+        int[][] dp = new int[right - left + 1][2];
+        dp[0][0] = 0;
+        dp[0][1] = nums[left];
+        for (int i = left + 1; i <= right; i++) {
+            int index = i - left; // 注意下标的处理方式
+            dp[index][0] = Math.max(dp[index - 1][0], dp[index - 1][1]);
+            dp[index][1] = Math.max(dp[index - 1][1], dp[index - 1][0] + nums[i]);
         }
-        return 0;
+
+        return Math.max(dp[right - left][0], dp[right - left][1]);
     }
 }
