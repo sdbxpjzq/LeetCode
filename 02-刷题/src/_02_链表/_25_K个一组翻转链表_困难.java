@@ -61,55 +61,6 @@ public class _25_K个一组翻转链表_困难 {
         return newHead;
     }
 
-    public ListNode reverseKGroupV2(ListNode head, int k) {
-        // 增加虚拟头结点
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-
-        // 定义 prev 和 end 结点
-        ListNode prev = dummy;
-        ListNode end = dummy;
-
-        while (end.next != null) {
-            // 以 k 个结点为条件，分组子链表
-            for (int i = 0; i < k && end != null; i++) {
-                end = end.next;
-            }
-            // 不足 K 个时不处理
-            if (end == null) {
-                break;
-            }
-
-            // 处理子链表
-            ListNode start = prev.next;
-            ListNode next = end.next;
-            end.next = null;
-            // 翻转子链表
-            prev.next = reverseList(start);
-            // 将子连表前后串起来
-            start.next = next;
-            prev = start;
-            end = prev;
-        }
-        return dummy.next;
-    }
-
-    // 单链翻转子链
-    private ListNode reverseList(ListNode head) {
-        if (head== null || head.next == null) {
-            return head;
-        }
-        ListNode  pre = null;
-        ListNode first = head;
-        while (first != null) {
-            ListNode tmp = first.next;
-            first.next = pre;
-            pre = first;
-            first = tmp;
-        }
-        return pre;
-    }
-
 
 
     public class ListNode {
