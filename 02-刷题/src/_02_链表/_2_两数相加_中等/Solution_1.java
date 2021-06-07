@@ -7,46 +7,18 @@ public class Solution_1 {
 
         //进位
         int carry = 0;
-        while (l1 != null && l2 != null) {
-            int tmp = l1.val + l2.val + carry;
+        while (l1 != null || l2 != null || carry > 0) {
+            int n1 = (l1 == null) ? 0 : l1.val;
+            int n2 = (l2 == null) ? 0 : l2.val;
+            int tmp = n1 + n2 + carry;
             int val = tmp % 10;
             carry = tmp / 10;
             ListNode node = new ListNode(val);
             currentNode.next = node;
             currentNode = node;
 
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-
-        if (l1 != null) {
-            while (l1 != null) {
-                int tmp = l1.val + carry;
-                int val = tmp % 10;
-                carry = tmp / 10;
-                ListNode node = new ListNode(val);
-                currentNode.next = node;
-                currentNode = node;
-
-                l1 = l1.next;
-            }
-        }
-        if (l2 != null) {
-            while (l2 != null) {
-                int tmp = l2.val + carry;
-                int val = tmp % 10;
-                carry = tmp / 10;
-                ListNode node = new ListNode(val);
-                currentNode.next = node;
-                currentNode = node;
-                l2 = l2.next;
-            }
-        }
-
-        if (carry != 0) {
-            ListNode node = new ListNode(carry);
-            currentNode.next = node;
-            currentNode = node;
+            l1 = l1 != null ? l1.next : null;
+            l2 = l2 != null ? l2.next : null;
         }
         return dummyNode.next;
     }
