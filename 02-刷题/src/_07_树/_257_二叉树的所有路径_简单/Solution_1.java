@@ -9,7 +9,7 @@ public class Solution_1 {
     List<List<Integer>> paths = new ArrayList<>();
 
     public List<String> binaryTreePaths(TreeNode root) {
-        m2(root);
+        dfs(root);
         return result;
     }
 
@@ -44,17 +44,17 @@ public class Solution_1 {
         return sPath.toString();
     }
 
-    public void dfs(TreeNode root) {
+    public void dfs(TreeNode node) {
         // 递归退出条件
-        if (root == null) {
+        if (node == null) {
             return;
         }
-        path.add(root.val);
-        if (root.left == null && root.right==null) {
+        path.add(node.val);
+        if (node.left == null && node.right==null) {
             paths.add(new ArrayList<>(path));
         }else {
-            dfs(root.left);
-            dfs(root.right);
+            dfs(node.left);
+            dfs(node.right);
         }
         // 回溯
         path.remove(path.size()-1);

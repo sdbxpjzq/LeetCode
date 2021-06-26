@@ -35,6 +35,9 @@ public class _445_两数相加II_中等 {
 
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
+
         Stack<Integer> s1 = new Stack<>();
         Stack<Integer> s2 = new Stack<>();
         // 利用栈
@@ -56,11 +59,16 @@ public class _445_两数相加II_中等 {
             carry = sum / 10;
             int val = sum % 10;
             ListNode node = new ListNode(val);
+
+            ListNode tmp = cur.next;
+            cur.next = node;
+            node.next = tmp;
             // 头插法
-            node.next = newHead;
-            newHead = node;
+            // node.next = newHead;
+            // newHead = node;
         }
-        return newHead;
+        // return newHead;
+        return dummy.next;
     }
 
 
