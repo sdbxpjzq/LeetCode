@@ -13,13 +13,17 @@ package _01_数组._287_寻找重复数_中等;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Solution {
+    public static void main(String[] args) {
+
+    }
     public int findDuplicate(int[] nums) {
         /**
          快慢指针思想,游走必然是成环的, 环的入口就是重复的元素,
          即按照寻找链表环入口的思路来做
          **/
         int fast = 0, slow = 0;
-        while (true) {
+        // while (true) {
+        while (fast<nums.length) {
             fast = nums[nums[fast]];
             slow = nums[slow];
             if (slow == fast) {
