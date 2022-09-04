@@ -16,26 +16,23 @@ public class Solution {
     public static void main(String[] args) {
 
     }
+
     public int findDuplicate(int[] nums) {
-        /**
-         快慢指针思想,游走必然是成环的, 环的入口就是重复的元素,
-         即按照寻找链表环入口的思路来做
-         **/
         int fast = 0, slow = 0;
-        // while (true) {
-        while (fast<nums.length) {
+        while (true) {
             fast = nums[nums[fast]];
             slow = nums[slow];
             if (slow == fast) {
-                fast = 0;
-                while (nums[slow] != nums[fast]) {
-                    fast = nums[fast];
+                int slow2 = 0;
+                while (nums[slow] != nums[slow2]) {
+                    slow2= nums[slow2];
                     slow = nums[slow];
                 }
                 return nums[slow];
             }
         }
     }
+
 
     // https://mp.weixin.qq.com/s/s82YbZrrXEFUc_9upg51Xg
     public int findDuplicateV2(int[] nums) {

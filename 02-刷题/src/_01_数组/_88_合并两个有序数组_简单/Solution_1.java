@@ -1,6 +1,21 @@
 package _01_数组._88_合并两个有序数组_简单;
 
+
 public class Solution_1 {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        // 递归结束条件
+        if (list1 ==null) return list2;
+        if (list2 ==null) return list1;
+
+        if (list1.val <= list2.val) {
+            list1.next = mergeTwoLists(list1.next, list2);
+            return list1;
+        } else {
+            list2.next = mergeTwoLists(list1, list2.next);
+            return list2;
+        }
+    }
+
     // nums1 和 nums2 的元素数量分别为 m 和 n
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         // 新数组 最大下标
