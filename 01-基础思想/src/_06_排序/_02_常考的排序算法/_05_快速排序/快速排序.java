@@ -7,13 +7,13 @@ import java.util.Arrays;
  * 也采用了分治的思想
  * 把原始的数组筛选成较小和较大的两个子数组, 然后递归的排序两个子数组
  * 在分成较小和较大的两个子数组过程中, 如何选定一个基准值很重要
- *
- *
+ * <p>
+ * <p>
  * - 只需要开辟`O(1)空间`, 直接对原数组修改
- *
+ * <p>
  * - 递归次数为`logn`,所以整理的空间复杂度完全取决于压栈的次数
- *
- *
+ * <p>
+ * <p>
  * 如何选择基准
  * 1. 选择第一个或者最后一个
  * 如果待排序数是随机的，那么选择第一个或者最后一个作基准是没有什么问题的，
@@ -65,20 +65,20 @@ public class 快速排序 {
     private static int partition(int[] a, int left, int right) {
         int mid = left;
 
-        while(left<right) {
-            while(left<right && a[right]>=a[mid]){
+        while (left < right) {
+            while (left < right && a[right] >= a[mid]) {
                 right--;
             }
 
-            while(left<right && a[left]<=a[mid]) {
+            while (left < right && a[left] <= a[mid]) {
                 left++;
             }
 
-            if(left<right) {
-                swap(a,left,right);
+            if (left < right) {
+                swap(a, left, right);
             }
         }
-        swap(a,mid,left);
+        swap(a, mid, left);
         return left;
     }
 
@@ -88,10 +88,6 @@ public class 快速排序 {
         a[left] = a[right];
         a[right] = t;
     }
-
-
-
-
 
 
 }
