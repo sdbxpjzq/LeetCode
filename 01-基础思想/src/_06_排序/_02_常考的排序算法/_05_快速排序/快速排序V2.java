@@ -1,6 +1,5 @@
 package _06_排序._02_常考的排序算法._05_快速排序;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class 快速排序V2 {
